@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 00000000000000000000000000000000
+  productGUID: 59726af51ef962540acf950f329d9a93
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 3
@@ -686,7 +686,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
   cloudProjectId: 344c70f7-bb46-41ff-b330-399707c3744a
-  projectName: 
+  projectName: Defencegame
   organizationId: gucchi-c54798c1-9b28-4797-bbfb-ff1e935aef35
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
