@@ -117,9 +117,10 @@ GameObject:
   - component: {fileID: 135521560193847876}
   - component: {fileID: 54749633409180068}
   - component: {fileID: 195208198394833600}
+  - component: {fileID: 114438340028654434}
   m_Layer: 0
   m_Name: wolf_02_Mecanim
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1392,6 +1393,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114438340028654434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195686902897348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627cf31c7a8ede47ab40c93ef60b31d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 25
+  magicres: 15
+  gunres: -5
 --- !u!135 &135521560193847876
 SphereCollider:
   m_ObjectHideFlags: 1

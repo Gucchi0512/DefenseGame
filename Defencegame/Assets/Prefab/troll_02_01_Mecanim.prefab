@@ -189,9 +189,10 @@ GameObject:
   - component: {fileID: 54578000571728102}
   - component: {fileID: 136921128559680548}
   - component: {fileID: 195559985763642310}
+  - component: {fileID: 114597638955272584}
   m_Layer: 0
   m_Name: troll_02_01_Mecanim
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1658,6 +1659,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114597638955272584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1319610468006666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627cf31c7a8ede47ab40c93ef60b31d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  magicres: 10
+  gunres: 5
 --- !u!136 &136921128559680548
 CapsuleCollider:
   m_ObjectHideFlags: 1

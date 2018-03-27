@@ -31,7 +31,7 @@ public class enemyspown : MonoBehaviour
     // Update is called once per frame
     void Update() {
         animator.SetTrigger("summons");
-        enemynum = Random.Range(0, 6);
+        enemynum = Random.Range(0, 11);
         passedtime += Time.deltaTime;
         foreach (var items in pss) {
             //items.Stop();
@@ -42,7 +42,7 @@ public class enemyspown : MonoBehaviour
             chcolor.ColorChange(color:"black");
             chcolor2.ColorChange(color: "black");
             if (enemynum >= 0 && enemynum < 5) {
-                Instantiate(gobrin, transform.position, Quaternion.identity);
+                Instantiate(gobrin, transform.position, transform.rotation);
             } /*else if (enemynum < 8) {
                 Instantiate(hobgobrin, transform.position, Quaternion.identity);
             } else if (enemynum < 10) {

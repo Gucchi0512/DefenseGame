@@ -28,12 +28,12 @@ public class magicmotion : MonoBehaviour {
 	}
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag != "bullet") {
+        if (collision.gameObject.tag == "bullet" || collision.gameObject.tag == "stage"|| collision.gameObject.tag == "enemy") {
             Destroy(gameObject);
+            if (collision.gameObject.tag == "enemy") {
+                Enemystatus hitenemy = collision.gameObject.GetComponent<Enemystatus>();
+                hitenemy.hp -= (power + chargetime) - hitenemy.magicres;
+            }
         }
-        if (collision.gameObject.tag == "enemy") {
-            Enemystatus hitenemy = collision.gameObject.GetComponent<Enemystatus>();
-            hitenemy.hp -= (power + chargetime) - hitenemy.magicres;
-        } 
     }
 }

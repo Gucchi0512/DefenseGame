@@ -7,6 +7,7 @@ public class Enemystatus : MonoBehaviour {
     public float magicres;
     public float gunres;
     Animator animator;
+    AnimatorStateInfo anistate;
 	// Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
@@ -16,7 +17,13 @@ public class Enemystatus : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (hp <= 0.0f) {
-            animator.SetBool("dead", true);    
+            animator.SetBool("dead", true);
+            anistate = animator.GetCurrentAnimatorStateInfo(0);
+            if (anistate.normalizedTime > 1.0f) {
+                Destroy(gameObject);
+            }
         }
 	}
+
+    
 }

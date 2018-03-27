@@ -220,9 +220,10 @@ GameObject:
   - component: {fileID: 54798690612412344}
   - component: {fileID: 136574269819347204}
   - component: {fileID: 195423164821120576}
+  - component: {fileID: 114280608213931864}
   m_Layer: 0
   m_Name: Hobgoblin_002_Mecanim
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1912,6 +1913,20 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.5
   m_Autodestruct: 0
+--- !u!114 &114280608213931864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1180972248598146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627cf31c7a8ede47ab40c93ef60b31d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 50
+  magicres: 5
+  gunres: 5
 --- !u!136 &136574269819347204
 CapsuleCollider:
   m_ObjectHideFlags: 1
