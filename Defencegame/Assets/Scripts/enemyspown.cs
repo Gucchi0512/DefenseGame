@@ -23,13 +23,13 @@ public class enemyspown : MonoBehaviour {
             passedtime = 0.0f;
             if (enemynum >= 0 && enemynum < 5) {
                 Instantiate(gobrin, transform.position, Quaternion.identity);
-            } else if (enemynum < 8) {
+            } /*else if (enemynum < 8) {
                 Instantiate(hobgobrin, transform.position, Quaternion.identity);
             } else if (enemynum < 10) {
                 Instantiate(wolf, transform.position, Quaternion.identity);
             } else {
                 Instantiate(troll, transform.position, Quaternion.identity);
-            }
+            }*/
         }
 	}
 }
