@@ -3,34 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChangeColor : MonoBehaviour {
-    public ParticleSystem.MainModule par;
+    ParticleSystem par;
+    //public GameObject spown;
+    //enemyspown color;
     // Use this for initialization
+    
     void Start () {
-        par = GetComponent<ParticleSystem>().main;
+        par = GetComponent<ParticleSystem>();
     }
-	
-	// Update is called once per frame
-	public void ColorChange(string color) {
-        Debug.Log("called");
+    
+    public void ColorChange(string color) {
+        var main = par.main;
         switch (color) {
             case "red": {
-                par.startColor = Color.red;
+                main.startColor = new Color(1, 0, 0);
                 break;
             }
             case "blue": {
-                par.startColor = Color.blue;
+                main.startColor = new Color(0, 0, 1);
                 break;
             }
             case "yellow": {
-                par.startColor = Color.yellow;
+                main.startColor = Color.yellow;
                 break;
             }
             case "green": {
-                par.startColor = Color.green;
+                main.startColor = Color.green;
                 break;
             }
             case "cyan": {
-                par.startColor = Color.cyan;
+                main.startColor = Color.cyan;
                 break;
             }
             default: {
