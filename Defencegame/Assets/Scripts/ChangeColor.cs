@@ -16,11 +16,11 @@ public class ChangeColor : MonoBehaviour {
         var main = par.main;
         switch (color) {
             case "red": {
-                main.startColor = new Color(1, 0, 0);
+                main.startColor = Color.red;
                 break;
             }
             case "blue": {
-                main.startColor = new Color(0, 0, 1);
+                main.startColor = Color.blue;
                 break;
             }
             case "yellow": {
@@ -33,6 +33,10 @@ public class ChangeColor : MonoBehaviour {
             }
             case "cyan": {
                 main.startColor = Color.cyan;
+                break;
+            }
+            case "black": {
+                main.startColor = Color.black;
                 break;
             }
             default: {

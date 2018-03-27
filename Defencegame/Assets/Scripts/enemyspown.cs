@@ -9,22 +9,38 @@ public class enemyspown : MonoBehaviour
     public GameObject wolf;
     public GameObject troll;
     int enemynum;
-    float spownspan = 10.0f;
+    public float spownspan = 10.0f;
     float passedtime = 0.0f;
     ChangeColor chcolor;
+    ChangeColor chcolor2;
     public GameObject ch;
+    public GameObject ch2;
+    ParticleSystem[] pss;
+    Animator animator;
     // Use this for initialization
     void Start() {
+        animator = GetComponentInChildren<Animator>();
+        pss = GetComponentsInChildren<ParticleSystem>();
         chcolor = ch.GetComponent<ChangeColor>();
+        chcolor2 = ch2.GetComponent<ChangeColor>();
+        foreach(var item in pss) {
+            item.Stop();
+        }
     }
 
     // Update is called once per frame
     void Update() {
-        enemynum = Random.Range(0, 11);
+        animator.SetTrigger("summons");
+        enemynum = Random.Range(0, 6);
         passedtime += Time.deltaTime;
+        foreach (var items in pss) {
+            //items.Stop();
+            items.Play();
+        }
         if (passedtime >= spownspan) {
             passedtime = 0.0f;
-            chcolor.ColorChange(color:"yellow");
+            chcolor.ColorChange(color:"black");
+            chcolor2.ColorChange(color: "black");
             if (enemynum >= 0 && enemynum < 5) {
                 Instantiate(gobrin, transform.position, Quaternion.identity);
             } /*else if (enemynum < 8) {
@@ -35,5 +51,11 @@ public class enemyspown : MonoBehaviour
                 Instantiate(troll, transform.position, Quaternion.identity);
             }*/
         }
+        if (passedtime >= 2.0f) {
+            chcolor.ColorChange(color: "red");
+            chcolor2.ColorChange(color: "red");
+        }
     }
+
+    
 }
