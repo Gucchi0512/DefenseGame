@@ -13,16 +13,14 @@ public class enemyspown : MonoBehaviour
     float passedtime = 0.0f;
     ChangeColor chcolor;
     ChangeColor chcolor2;
-    public GameObject ch;
-    public GameObject ch2;
     ParticleSystem[] pss;
     Animator animator;
     // Use this for initialization
     void Start() {
         animator = GetComponentInChildren<Animator>();
         pss = GetComponentsInChildren<ParticleSystem>();
-        chcolor = ch.GetComponent<ChangeColor>();
-        chcolor2 = ch2.GetComponent<ChangeColor>();
+        chcolor = GetComponent<ChangeColor>();
+        chcolor2 = GetComponent<ChangeColor>();
         foreach(var item in pss) {
             item.Stop();
         }

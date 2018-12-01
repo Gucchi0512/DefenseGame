@@ -1,11 +1,16 @@
 fileFormatVersion: 2
 guid: a8d11aca36ec7f64ebab0951b14657ab
-timeCreated: 1522138025
-licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gobrin: {fileID: 1985924233630200, guid: 3a3ab9cdd65ca3147b7de65095b3f93f, type: 2}
+  - hobgobrin: {fileID: 1180972248598146, guid: 1e4c1ff8b877a744bbd7e7c82466437b,
+      type: 2}
+  - wolf: {fileID: 1195686902897348, guid: 14d0178d2a9b73248b85513b209fabf5, type: 2}
+  - troll: {fileID: 1319610468006666, guid: 2a10c4687d3247a49bae3edac5513176, type: 2}
+  - ch: {instanceID: 0}
+  - ch2: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
