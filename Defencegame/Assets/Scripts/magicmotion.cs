@@ -3,24 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class magicmotion : MonoBehaviour {
+    ParticleSystem particle;
     float chargetime = 0.0f;
-    float speed = 300.0f;
+    float speed = 1000.0f;
     float power = 25.0f;
     GameObject player;
     bool left=false;
-	// Use this for initialization
-	void Start () {
+    public GameObject rigpos;
+    // Use this for initialization
+    void Start () {
+        particle = this.GetComponentInChildren<ParticleSystem>();
         player = GameObject.FindGameObjectWithTag("MainCamera");    	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButton(0)&&chargetime<=5.0f&&!left) {
-            chargetime += 0.05f;
-            transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
+        if (Input.GetMouseButton(0)&&!left) {
+            this.transform.position = rigpos.transform.position;
+            if (!particle.isPlaying)particle.Play();
+            chargetime += Time.deltaTime;
+            if(transform.localScale.x <= 1.0) transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
         }
         if (Input.GetMouseButtonUp(0)) {
             Vector3 force;
+            Destroy(particle);
             force = player.transform.forward * speed;
             GetComponent<Rigidbody>().AddForce(force);
             left = true;
@@ -28,7 +34,7 @@ public class magicmotion : MonoBehaviour {
 	}
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "bullet" || collision.gameObject.tag == "stage"|| collision.gameObject.tag == "enemy") {
+        if (!(collision.gameObject.tag=="Player")) {
             Destroy(gameObject);
             if (collision.gameObject.tag == "enemy") {
                 Enemystatus hitenemy = collision.gameObject.GetComponent<Enemystatus>();
