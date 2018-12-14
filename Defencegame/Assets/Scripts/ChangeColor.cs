@@ -9,7 +9,7 @@ public class ChangeColor : MonoBehaviour {
     // Use this for initialization
     
     void Start () {
-        par = GetComponent<ParticleSystem>();
+        par = GetComponentInChildren<ParticleSystem>();
     }
     
     public void ColorChange(string color) {

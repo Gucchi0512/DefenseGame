@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class enemyspown : MonoBehaviour
 {
-    public GameObject gobrin;
-    public GameObject hobgobrin;
-    public GameObject wolf;
-    public GameObject troll;
+    [SerializeField] private GameObject gobrin;
+    [SerializeField] private GameObject hobgobrin;
+    [SerializeField] private GameObject wolf;
+    [SerializeField] private GameObject troll;
     int enemynum;
     public float spownspan = 10.0f;
     float passedtime = 0.0f;
-    ChangeColor chcolor;
-    ChangeColor chcolor2;
+    ChangeColor[] chcolors;
     ParticleSystem[] pss;
     Animator animator;
     // Use this for initialization
     void Start() {
         animator = GetComponentInChildren<Animator>();
         pss = GetComponentsInChildren<ParticleSystem>();
-        chcolor = GetComponent<ChangeColor>();
-        chcolor2 = GetComponent<ChangeColor>();
+        chcolors = GetComponentsInChildren<ChangeColor>();
         foreach(var item in pss) {
             item.Stop();
         }
@@ -29,18 +27,18 @@ public class enemyspown : MonoBehaviour
     // Update is called once per frame
     void Update() {
         animator.SetTrigger("summons");
-        enemynum = Random.Range(0, 11);
+        enemynum = Random.Range(0, 5);
         passedtime += Time.deltaTime;
         foreach (var items in pss) {
             //items.Stop();
-            items.Play();
+            if(!items.isPlaying)items.Play();
         }
         if (passedtime >= spownspan) {
             passedtime = 0.0f;
-            chcolor.ColorChange(color:"black");
-            chcolor2.ColorChange(color: "black");
+            foreach(var color in chcolors)color.ColorChange(color:"black");
             if (enemynum >= 0 && enemynum < 5) {
-                Instantiate(gobrin, transform.position, transform.rotation);
+                Instantiate(gobrin, transform.position, GetComponentInParent<Transform>().rotation);
+                Debug.Log("Spown");
             } /*else if (enemynum < 8) {
                 Instantiate(hobgobrin, transform.position, Quaternion.identity);
             } else if (enemynum < 10) {
@@ -50,8 +48,7 @@ public class enemyspown : MonoBehaviour
             }*/
         }
         if (passedtime >= 2.0f) {
-            chcolor.ColorChange(color: "red");
-            chcolor2.ColorChange(color: "red");
+            foreach(var color in chcolors)color.ColorChange(color: "red");
         }
     }
 

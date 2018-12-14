@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class gobrinmove : MonoBehaviour {
-    public GameObject target;
+    private GameObject target;
     public float dis;
     bool arrived=false;
     Animator animator;
@@ -13,14 +13,14 @@ public class gobrinmove : MonoBehaviour {
     void Start () {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = 2;
-        agent.destination = target.transform.position;
         animator = GetComponent<Animator>();
-
+        target=GameObject.Find("Crystal");
     }
 
     // Update is called once per frame
     void Update() {
         dis = (transform.position - target.transform.position).sqrMagnitude;
+        agent.SetDestination(target.transform.position);
         if (dis > 8.0f && !arrived) {
             animator.SetBool("walk", true);
         }else if (!arrived) {
