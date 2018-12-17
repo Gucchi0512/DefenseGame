@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class enemyspown : MonoBehaviour
 {
-    [SerializeField] private GameObject gobrin;
-    [SerializeField] private GameObject hobgobrin;
-    [SerializeField] private GameObject wolf;
-    [SerializeField] private GameObject troll;
+    [SerializeField] private GameObject[] enemy;
     int enemynum;
     public float spownspan = 10.0f;
     float passedtime = 0.0f;
@@ -16,6 +13,7 @@ public class enemyspown : MonoBehaviour
     Animator animator;
     // Use this for initialization
     void Start() {
+        enemy=GameObject.FindGameObjectsWithTag("enemy");
         animator = GetComponentInChildren<Animator>();
         pss = GetComponentsInChildren<ParticleSystem>();
         chcolors = GetComponentsInChildren<ChangeColor>();
@@ -37,8 +35,7 @@ public class enemyspown : MonoBehaviour
             passedtime = 0.0f;
             foreach(var color in chcolors)color.ColorChange(color:"black");
             if (enemynum >= 0 && enemynum < 5) {
-                Instantiate(gobrin, transform.position, GetComponentInParent<Transform>().rotation);
-                Debug.Log("Spown");
+                Instantiate(enemy[0], transform.position, GetComponentInParent<Transform>().rotation);
             } /*else if (enemynum < 8) {
                 Instantiate(hobgobrin, transform.position, Quaternion.identity);
             } else if (enemynum < 10) {

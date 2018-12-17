@@ -11,7 +11,6 @@
 		Pass{
 			Zwrite On
 			ColorMask 0
-
 		}
 			Cull Off
 		CGPROGRAM
