@@ -21,7 +21,7 @@ public class magicmotion : MonoBehaviour {
         if (Input.GetMouseButton(0)&&!left) {
             this.transform.position = rigpos.transform.position;
             if (!particle[0].isPlaying)particle[0].Play();
-            chargetime += Time.deltaTime;
+            if(chargetime<=75) chargetime += Time.deltaTime;
             if(transform.localScale.x <= 1.0) transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
         }
         if (Input.GetMouseButtonUp(0)) {
@@ -39,7 +39,7 @@ public class magicmotion : MonoBehaviour {
         if (!(collision.gameObject.tag=="Player")) {
             Destroy(gameObject);
             if (collision.gameObject.tag == "enemy") {
-                Enemystatus hitenemy = collision.gameObject.GetComponent<Enemystatus>();
+                Status hitenemy = collision.gameObject.GetComponent<Status>();
                 hitenemy.hp -= (power + chargetime) - hitenemy.magicres;
             }
         }
