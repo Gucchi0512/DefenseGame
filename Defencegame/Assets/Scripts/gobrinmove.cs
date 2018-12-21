@@ -5,25 +5,29 @@ using UnityEngine.AI;
 
 public class gobrinmove : MonoBehaviour {
     private GameObject target;
-    public float dis;
+    private float dis;
     bool arrived=false;
     Animator animator;
     NavMeshAgent agent;
+    Status status;
+    Status targetStatus;
     // Use this for initialization
     void Start () {
         target = GameObject.FindGameObjectWithTag("Target");
+        targetStatus=target.GetComponent<Status>();
         agent = GetComponent<NavMeshAgent>();
         agent.speed = 2;
         agent.destination=target.transform.position;
         animator = GetComponent<Animator>();
         animator.SetBool("walk", true);
+        status=GetComponent<Status>();
     }
 
     // Update is called once per frame
     void Update() {
         if(target!=null){
-        dis = (transform.position - target.transform.position).sqrMagnitude;
-            if (dis < 8.0f) {
+            if (agent.remainingDistance < agent.stoppingDistance) {
+                if(animator.GetBool("walk")) animator.SetBool("walk", false); 
                 StartCoroutine("Attack");
             } 
         }
@@ -31,9 +35,13 @@ public class gobrinmove : MonoBehaviour {
 	}
 
     IEnumerator Attack(){
-        animator.SetBool("walk", false);
-        yield return new WaitForSeconds(2f);
-        animator.SetBool("attack01", true);
-        yield return null;
+        while(status.hp>0||agent.remainingDistance>=agent.stoppingDistance){
+            yield return new WaitForSeconds(2f);
+            animator.SetBool("attack01", true);
+            yield return new WaitForSeconds(2f);
+            animator.SetBool("attack01", false);
+            targetStatus.hp-=5f;
+            yield return null;
+        }
     }
 }

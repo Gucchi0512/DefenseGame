@@ -14,12 +14,15 @@ public class Status : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(this.hp<=0){
+		if(this.gameObject.tag=="enemy"&&this.hp<=0){
 			GetComponent<NavMeshAgent>().Stop();
 			AnimatorClipInfo clipInfo = animator.GetCurrentAnimatorClipInfo(0)[0];
 			animator.SetBool(clipInfo.clip.name, false);
 			animator.SetBool("dead", true);
 			StartCoroutine("Deadenemy");
+		}else if(this.gameObject.tag=="Target"){
+			var parent = transform.root.gameObject;
+			parent.GetComponentInChildren<CrystalColor>().colorchange(hp);
 		}
 	}
 	private IEnumerator Deadenemy(){
