@@ -6,7 +6,7 @@ public class magicmotion : MonoBehaviour {
     ParticleSystem[] particle;
     float chargetime = 0.0f;
     float speed = 1000.0f;
-    float power = 25.0f;
+    float power = 50.0f;
     GameObject player;
     bool left=false;
     public GameObject rigpos;

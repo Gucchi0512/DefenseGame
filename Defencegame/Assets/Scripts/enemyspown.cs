@@ -28,7 +28,6 @@ public class enemyspown : MonoBehaviour
         enemynum = Random.Range(1, 5)%4;
         passedtime += Time.deltaTime;
         foreach (var items in pss) {
-            //items.Stop();
             if(!items.isPlaying)items.Play();
         }
         if (passedtime >= spownspan) {

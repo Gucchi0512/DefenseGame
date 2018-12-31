@@ -333,6 +333,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   magicres: 25
+--- !u!114 &270373474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 270373472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee05fe38d4b2445449bd4c9c2d024730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &297445929 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1180972248598146, guid: 1e4c1ff8b877a744bbd7e7c82466437b,
@@ -550,6 +562,11 @@ Prefab:
     - target: {fileID: 4123756251534308, guid: 2a10c4687d3247a49bae3edac5513176, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 195559985763642310, guid: 2a10c4687d3247a49bae3edac5513176,
+        type: 2}
+      propertyPath: m_StoppingDistance
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 54578000571728102, guid: 2a10c4687d3247a49bae3edac5513176, type: 2}
@@ -862,6 +879,10 @@ Prefab:
       propertyPath: hp
       value: 10000
       objectReference: {fileID: 0}
+    - target: {fileID: 4848959603931916, guid: eaacca28ad29a6647858ce6cdff01cca, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaacca28ad29a6647858ce6cdff01cca, type: 2}
   m_IsPrefabAsset: 0
@@ -1028,6 +1049,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 50
   magicres: 30
+--- !u!114 &1277488176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1277488174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f59b8de51f69b341bb05041ab13725a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1001 &1370015365
 Prefab:
   m_ObjectHideFlags: 0
@@ -1071,6 +1104,11 @@ Prefab:
         type: 2}
       propertyPath: m_Speed
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 195208198394833600, guid: 14d0178d2a9b73248b85513b209fabf5,
+        type: 2}
+      propertyPath: m_StoppingDistance
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114438340028654434, guid: 14d0178d2a9b73248b85513b209fabf5, type: 2}
@@ -1352,7 +1390,7 @@ Prefab:
     - target: {fileID: 195423164821120576, guid: 1e4c1ff8b877a744bbd7e7c82466437b,
         type: 2}
       propertyPath: m_StoppingDistance
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114280608213931864, guid: 1e4c1ff8b877a744bbd7e7c82466437b, type: 2}
