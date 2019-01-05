@@ -25,24 +25,15 @@ public class enemyspown : MonoBehaviour
     // Update is called once per frame
     void Update() {
         animator.SetTrigger("summons");
-        enemynum = Random.Range(0, 5);
+        enemynum = Random.Range(1, 5)%4;
         passedtime += Time.deltaTime;
         foreach (var items in pss) {
-            //items.Stop();
             if(!items.isPlaying)items.Play();
         }
         if (passedtime >= spownspan) {
             passedtime = 0.0f;
             foreach(var color in chcolors)color.ColorChange(color:"black");
-            if (enemynum >= 0 && enemynum < 5) {
-                Instantiate(enemy[0], transform.position, GetComponentInParent<Transform>().rotation);
-            } /*else if (enemynum < 8) {
-                Instantiate(hobgobrin, transform.position, Quaternion.identity);
-            } else if (enemynum < 10) {
-                Instantiate(wolf, transform.position, Quaternion.identity);
-            } else {
-                Instantiate(troll, transform.position, Quaternion.identity);
-            }*/
+            Instantiate(enemy[enemynum], transform.position, GetComponentInParent<Transform>().rotation);
         }
         if (passedtime >= 2.0f) {
             foreach(var color in chcolors)color.ColorChange(color: "red");

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23409541105798972}
   - component: {fileID: 95799871820958518}
   - component: {fileID: 64940727707267994}
+  - component: {fileID: 114024732095033224}
   m_Layer: 0
   m_Name: Cylinder.001
   m_TagString: Untagged
@@ -45,6 +46,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1432300034254578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4848959603931916}
+  - component: {fileID: 114301067983867052}
+  m_Layer: 0
+  m_Name: target
+  m_TagString: Target
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4303356761796640
 Transform:
   m_ObjectHideFlags: 1
@@ -52,9 +69,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1200023467831136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2, y: 6.0940695, z: 44.08}
+  m_LocalPosition: {x: 6.98, y: 6.0940695, z: 44.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4848959603931916}
   - {fileID: 4457391344103926}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -68,6 +86,19 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -6.9537454, y: -1.0940702, z: -5.209417}
   m_LocalScale: {x: 500, y: 500, z: 500}
+  m_Children: []
+  m_Father: {fileID: 4303356761796640}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4848959603931916
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432300034254578}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -6.9537454, y: -5.9640694, z: -5.2094154}
+  m_LocalScale: {x: 500, y: 499.99988, z: 499.99988}
   m_Children: []
   m_Father: {fileID: 4303356761796640}
   m_RootOrder: 0
@@ -146,3 +177,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114024732095033224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1152841655465494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24cc799a3caa7b4f94ce33c3b8cd8ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114301067983867052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432300034254578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e071ce7379c6749983a6dd7c9c3874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  magicres: 0
