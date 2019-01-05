@@ -27,6 +27,8 @@ public class TrollMove : MonoBehaviour {
 			if(agent.remainingDistance<=agent.stoppingDistance){
 				if(animator.GetBool("walk")) animator.SetBool("walk", false);
 				StartCoroutine("Attack");
+			}else{
+				if(!animator.GetBool("walk")) animator.SetBool("walk", true);
 			}
 		}else{
 			animator.SetBool("walk", false);
