@@ -25,6 +25,7 @@ public class gobrinmove : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        Debug.Log(agent.remainingDistance+" "+agent.stoppingDistance);
         if(target!=null){
             if (agent.remainingDistance < agent.stoppingDistance) {
                 if(animator.GetBool("walk")) animator.SetBool("walk", false); 
