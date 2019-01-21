@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class gobrinmove : MonoBehaviour {
+public class EnemyManage : MonoBehaviour {
     private GameObject target;
     private float dis;
     bool arrived=false;
@@ -11,6 +11,8 @@ public class gobrinmove : MonoBehaviour {
     NavMeshAgent agent;
     Status status;
     Status targetStatus;
+    [SerializeField]private string attackanimate;
+    [SerializeField]private float power;
     // Use this for initialization
     void Start () {
         target = GameObject.FindGameObjectWithTag("Target");
@@ -42,10 +44,10 @@ public class gobrinmove : MonoBehaviour {
     IEnumerator Attack(){
         while(status.hp>0||agent.remainingDistance>=agent.stoppingDistance){
             yield return new WaitForSeconds(2f);
-            animator.SetBool("attack01", true);
+            animator.SetBool(attackanimate, true);
             yield return new WaitForSeconds(2f);
-            animator.SetBool("attack01", false);
-            targetStatus.hp-=5f;
+            animator.SetBool(attackanimate, false);
+            targetStatus.hp-=power;
             yield return null;
         }
     }
