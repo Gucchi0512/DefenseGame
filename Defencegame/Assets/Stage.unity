@@ -683,7 +683,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 158226, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 463470, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: m_LocalPosition.x
@@ -969,6 +969,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StoppingDistance
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195208198394833600, guid: 14d0178d2a9b73248b85513b209fabf5,
+        type: 3}
+      propertyPath: m_Radius
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4351552306562924196, guid: 14d0178d2a9b73248b85513b209fabf5,
         type: 3}
