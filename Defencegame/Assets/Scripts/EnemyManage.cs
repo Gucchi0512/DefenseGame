@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyManage : MonoBehaviour {
-    private GameObject target;
+    [SerializeField]private Transform target;
     private float dis;
     bool arrived=false;
     Animator animator;
@@ -15,34 +15,35 @@ public class EnemyManage : MonoBehaviour {
     [SerializeField]private float power;
     // Use this for initialization
     void Start () {
-        target = GameObject.FindGameObjectWithTag("Target");
+        target = GameObject.FindGameObjectWithTag("Target").transform;
         targetStatus=target.GetComponent<Status>();
+        animator = GetComponent<Animator>();
+        status=GetComponent<Status>();
         agent = GetComponent<NavMeshAgent>();
         agent.speed = 2;
-        agent.destination=target.transform.position;
-        animator = GetComponent<Animator>();
         animator.SetBool("walk", true);
-        status=GetComponent<Status>();
     }
 
     // Update is called once per frame
     void Update() {
-        Debug.Log(agent.remainingDistance+" "+agent.stoppingDistance);
         if(target!=null){
-            if (agent.remainingDistance < agent.stoppingDistance) {
-                if(animator.GetBool("walk")) animator.SetBool("walk", false); 
-                StartCoroutine("Attack");
-            } else{
-				if(!animator.GetBool("walk")) animator.SetBool("walk", true);
-			}
+            //agent.SetDestination(target.position);
+            agent.destination=target.position;
+            Debug.Log(target.transform.position+" "+agent.destination);
+			if(!animator.GetBool("walk")) animator.SetBool("walk", true);
         }else{
             animator.SetBool("walk", false);
         }
         
 	}
-
+    void OnTriggerStay(Collider col){
+        if(col.tag=="Target"){
+            if(animator.GetBool("walk")) animator.SetBool("walk", false); 
+            StartCoroutine("Attack");
+        }
+    }
     IEnumerator Attack(){
-        while(status.hp>0||agent.remainingDistance>=agent.stoppingDistance){
+        while(status.hp>0){
             yield return new WaitForSeconds(2f);
             animator.SetBool(attackanimate, true);
             yield return new WaitForSeconds(2f);
