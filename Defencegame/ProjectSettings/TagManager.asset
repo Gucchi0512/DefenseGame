@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - bullet
   - Target
+  - clystal
   layers:
   - Default
   - TransparentFX
@@ -24,9 +25,9 @@ TagManager:
   - Bg
   - FPSWeapon
   - Movable
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Stage
   - 
   - 
   - 

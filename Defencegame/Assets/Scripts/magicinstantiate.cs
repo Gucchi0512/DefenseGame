@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class magicinstantiate : MonoBehaviour {
+public class MagicInstantiate : MonoBehaviour {
     public GameObject bullet;
 
 	// Use this for initialization

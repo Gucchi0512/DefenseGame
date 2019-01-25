@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lasermanage : MonoBehaviour {
+public class LaserManage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +16,7 @@ public class lasermanage : MonoBehaviour {
 
  	void OnParticleCollision(GameObject other){
 		 if(other.gameObject.tag==("enemy")){
-		 	other.GetComponent<Status>().hp-=3.0f;
+		 	other.GetComponent<Status>().Damage(3.0f);
 		 }
 		 Destroy(gameObject);
 	}

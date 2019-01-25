@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveCircle : MonoBehaviour {
+public class MoveCircle : MonoBehaviour {
 	[SerializeField]GameObject magic;
 	[SerializeField]float speed=1.0f;
 
