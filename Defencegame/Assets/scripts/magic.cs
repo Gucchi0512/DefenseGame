@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class magic : MonoBehaviour {
+public class Magic : MonoBehaviour {
     [SerializeField] private GameObject magicbullet;
     [SerializeField] private GameObject laser;
     private GameObject magbullet;
@@ -17,7 +17,7 @@ public class magic : MonoBehaviour {
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
             magbullet = Instantiate(magicbullet, this.transform.position, this.transform.localRotation);
-            magbullet.GetComponent<magicmotion>().rigpos = this.gameObject;
+            magbullet.GetComponent<MagicMotion>().rigpos = this.gameObject;
         } else if(Input.GetMouseButtonDown(1)){
             laserobj = Instantiate(laser, this.transform.position, player.transform.rotation);
             laserobj.GetComponent<ParticleSystem>().Play();

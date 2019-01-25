@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Status : MonoBehaviour {
-	public float hp;
+	[SerializeField]private float hp;
+	public float speed;
 	public float magicres;
 	public float power;
 	private Animator animator;
@@ -20,14 +21,18 @@ public class Status : MonoBehaviour {
 			AnimatorClipInfo clipInfo = animator.GetCurrentAnimatorClipInfo(0)[0];
 			animator.SetBool(clipInfo.clip.name, false);
 			animator.SetBool("dead", true);
-			StartCoroutine("Deadenemy");
+			StartCoroutine("DeadEnemy");
 		}else if(this.gameObject.tag=="Target"){
-			Debug.Log(hp);
+			//Debug.Log(hp);
 			var parent = transform.root.gameObject;
 			parent.GetComponentInChildren<CrystalColor>().colorchange(hp);
 		}
 	}
-	private IEnumerator Deadenemy(){
+
+	public void Damage(float hitpower){
+		this.hp-=hitpower;
+	}
+	private IEnumerator DeadEnemy(){
 		yield return new WaitForSeconds(3f);
 		Destroy(this.gameObject);
 	}

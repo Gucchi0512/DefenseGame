@@ -6,19 +6,19 @@ public class EnemyAttack : MonoBehaviour
 {
     SphereCollider sphereCollider;
     GameObject enemy;
-    EnemyManage enemyManage;
+    Status status;
     // Start is called before the first frame update
     void Start()
     {
         enemy=transform.root.gameObject;
-        enemyManage=enemy.GetComponent<EnemyManage>();
+        status=enemy.GetComponent<Status>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnTriggerEnter(Collider col){
+        if(col.tag=="clystal"){
+            Debug.Log(status.power);
+            col.GetComponentInParent<Status>().Damage(status.power);
+        }
     }
-
 
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class magicmotion : MonoBehaviour {
+public class MagicMotion : MonoBehaviour {
     ParticleSystem[] particle;
     float chargetime = 0.0f;
     float speed = 1000.0f;
@@ -40,7 +40,7 @@ public class magicmotion : MonoBehaviour {
             Destroy(gameObject);
             if (collision.gameObject.tag == "enemy") {
                 Status hitenemy = collision.gameObject.GetComponent<Status>();
-                hitenemy.hp -= (power + chargetime) - hitenemy.magicres;
+                hitenemy.Damage((power + chargetime) - hitenemy.magicres);
             }
         }
     }

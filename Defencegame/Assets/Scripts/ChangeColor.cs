@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ChangeColor : MonoBehaviour {
     ParticleSystem par;
-    //public GameObject spown;
-    //enemyspown color;
-    // Use this for initialization
     
     void Start () {
         par = GetComponentInChildren<ParticleSystem>();

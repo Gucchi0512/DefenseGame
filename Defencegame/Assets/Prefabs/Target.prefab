@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 534793785614570997}
   - component: {fileID: 534793785614570996}
+  - component: {fileID: 732904441522487687}
   m_Layer: 0
   m_Name: Target
   m_TagString: Target
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534793785614570999}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2, y: 2.91, z: 19.1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
@@ -44,9 +45,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e071ce7379c6749983a6dd7c9c3874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1000
+  hp: 700
+  speed: 0
   magicres: 0
   power: 0
+--- !u!135 &732904441522487687
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534793785614570999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: -5, z: 0}
 --- !u!1 &534793786110102837
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +78,7 @@ GameObject:
   - component: {fileID: 534793786110102835}
   m_Layer: 0
   m_Name: Cylinder.001
-  m_TagString: stage
+  m_TagString: clystal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +91,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534793786110102837}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: -1.77, z: 0}
   m_LocalScale: {x: 500, y: 499.99982, z: 499.99982}
   m_Children: []
   m_Father: {fileID: 534793785614570997}

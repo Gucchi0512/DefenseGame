@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletaction : MonoBehaviour {
+public class BulletAction : MonoBehaviour {
     public float speed=5.0f;
     float bulletsize = 0f;
 	// Use this for initialization

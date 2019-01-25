@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyspown : MonoBehaviour
+public class EnemySpown : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemy;
     int enemynum;
