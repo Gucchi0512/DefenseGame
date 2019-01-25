@@ -5,12 +5,15 @@ using UnityEngine.AI;
 
 public class EnemyManage : MonoBehaviour {
     private Transform target;
+    private float dis;
+    bool arrived=false;
     Animator animator;
     NavMeshAgent agent;
     Status status;
     Status targetStatus;
     [SerializeField]private string attackanimate;
-    [SerializeField]private float attackDelay;
+    [SerializeField]private float power;
+    SphereCollider sphereCollider;
     // Use this for initialization
     void Start () {
         target = GameObject.FindGameObjectWithTag("Target").transform;
@@ -18,38 +21,49 @@ public class EnemyManage : MonoBehaviour {
         animator = GetComponent<Animator>();
         status=GetComponent<Status>();
         agent = GetComponent<NavMeshAgent>();
-        Vector3 targetPosOnGround = target.position;
-        targetPosOnGround.y=0;
+        sphereCollider=GetComponentInChildren<SphereCollider>();
         agent.speed = 2;
-        agent.stoppingDistance=2;
-        agent.SetDestination(targetPosOnGround);
+        sphereCollider.enabled=false;
         animator.SetBool("walk", true);
     }
 
     // Update is called once per frame
     void Update() {
         if(target!=null){
-            if(agent.remainingDistance<agent.stoppingDistance){
-                agent.isStopped=true;
-                if(animator.GetBool("walk")) animator.SetBool("walk", false); 
-                StartCoroutine("Attack");
-            }else{
-			    if(!animator.GetBool("walk")) animator.SetBool("walk", true);
-            }
+            //agent.SetDestination(target.position);
+            agent.destination=target.position;
+            Debug.Log(target.transform.position+" "+agent.destination);
+			if(!animator.GetBool("walk")) animator.SetBool("walk", true);
         }else{
             animator.SetBool("walk", false);
         }
         
 	}
-    
-    IEnumerator Attack(){
+    void OnTriggerStay(Collider col){
+        if(col.tag=="Target"){
+            if(animator.GetBool("walk")) animator.SetBool("walk", false); 
+            StartCoroutine("Attack");
+        }
+    }
+    void AttackStart(){
+        sphereCollider.enabled=true;
+    }
+
+    void AttackEnd(){
+        sphereCollider.enabled=false;
+    }
+    /*IEnumerator Attack(){
         while(status.hp>0){
-            yield return new WaitForSeconds(attackDelay);
+            yield return new WaitForSeconds(2f);
             animator.SetBool(attackanimate, true);
-            yield return new WaitForSeconds(attackDelay);
+            yield return new WaitForSeconds(2f);
             animator.SetBool(attackanimate, false);
-            targetStatus.hp-=status.power;
+            targetStatus.hp-=power;
             yield return null;
         }
+    }*/
+
+    public void Attack(){
+        
     }
 }
