@@ -6,7 +6,7 @@ public class MagicMotion : MonoBehaviour {
     ParticleSystem[] particle;
     float chargetime = 0.0f;
     float speed = 1000.0f;
-    float power = 50.0f;
+    float power = 70.0f;
     GameObject player;
     bool left=false;
     public GameObject rigpos;
@@ -18,13 +18,13 @@ public class MagicMotion : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButton(0)&&!left) {
+        if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger)&&!left) {
             this.transform.position = rigpos.transform.position;
             if (!particle[0].isPlaying)particle[0].Play();
             if(chargetime<=75) chargetime += Time.deltaTime;
             if(transform.localScale.x <= 1.0) transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
         }
-        if (Input.GetMouseButtonUp(0)) {
+        if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger)) {
             Vector3 force;
             Destroy(particle[0]);
             particle[1].Play();
@@ -34,12 +34,16 @@ public class MagicMotion : MonoBehaviour {
             left = true;
         }
 	}
-
-    private void OnCollisionEnter(Collision collision) {
-        if (!(collision.gameObject.tag=="Player")) {
+    void OnCollisionEnter(Collision  other){
+        if(!(other.gameObject.tag=="Player")){
             Destroy(gameObject);
-            if (collision.gameObject.tag == "enemy") {
-                Status hitenemy = collision.gameObject.GetComponent<Status>();
+        }
+    }
+    private void OnTriggerEnter(Collider col) {
+        if (!(col.tag=="Player")&&!(col.tag=="Target")) {
+            Destroy(gameObject);
+            if (col.tag == "enemy") {
+                Status hitenemy = col. GetComponent<Status>();
                 hitenemy.Damage((power + chargetime) - hitenemy.magicres);
             }
         }
