@@ -12,7 +12,7 @@ public class BulletAction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        while (Input.GetMouseButton(0)) {
+        while (OVRInput.Get(OVRInput.RawButton.RIndexTrigger)) {
             if (bulletsize <= (speed - 1.0f)) {
                 bulletsize += 0.5f;
                 this.transform.localScale += new Vector3(bulletsize, bulletsize, bulletsize);

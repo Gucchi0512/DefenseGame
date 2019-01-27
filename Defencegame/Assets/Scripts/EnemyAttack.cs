@@ -16,7 +16,6 @@ public class EnemyAttack : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         if(col.tag=="clystal"){
-            Debug.Log(status.power);
             col.GetComponentInParent<Status>().Damage(status.power);
         }
     }

@@ -15,10 +15,10 @@ public class Magic : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger)) {
             magbullet = Instantiate(magicbullet, this.transform.position, this.transform.localRotation);
             magbullet.GetComponent<MagicMotion>().rigpos = this.gameObject;
-        } else if(Input.GetMouseButtonDown(1)){
+        } else if(OVRInput.GetDown(OVRInput.RawButton.RHandTrigger)){
             laserobj = Instantiate(laser, this.transform.position, player.transform.rotation);
             laserobj.GetComponent<ParticleSystem>().Play();
         }

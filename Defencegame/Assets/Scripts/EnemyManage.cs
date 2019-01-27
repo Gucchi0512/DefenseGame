@@ -9,19 +9,23 @@ public class EnemyManage : MonoBehaviour {
     NavMeshAgent agent;
     Status status;
     Status targetStatus;
+    PlayingManage playingManager;
     [SerializeField]private string attackanimate;
-
+    GameObject player;
     SphereCollider sphereCollider;
     // Use this for initialization
     void Start () {
+        player=GameObject.FindGameObjectWithTag("Player");
         target = GameObject.FindGameObjectWithTag("Target").transform;
         targetStatus=target.GetComponent<Status>();
+        playingManager=player.GetComponent<PlayingManage>();
         animator = GetComponent<Animator>();
         status=GetComponent<Status>();
         agent = GetComponent<NavMeshAgent>();
         sphereCollider=GetComponentInChildren<SphereCollider>();
         agent.speed = status.speed;
         sphereCollider.enabled=false;
+        agent.isStopped=true;
         animator.SetBool("walk", true);
     }
 
@@ -31,6 +35,11 @@ public class EnemyManage : MonoBehaviour {
             agent.destination=target.position;
         }else{
             animator.SetBool("walk", false);
+        }
+        if(playingManager.isPlaying){
+            agent.isStopped=false;
+        }else if(playingManager.passedTime!=0.0f){
+            Destroy(gameObject);
         }
         
 	}
@@ -48,4 +57,6 @@ public class EnemyManage : MonoBehaviour {
     void AttackEnd(){
         sphereCollider.enabled=false;
     }
+
+    
 }
