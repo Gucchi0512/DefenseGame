@@ -42,6 +42,11 @@ public class EnemySpown : MonoBehaviour
             if (passedtime >= 2.0f) {
                 foreach(var color in chcolors)color.ColorChange(color: "red");
             }
+        }else{
+            animator.SetTrigger("finish");
+            foreach(var item in pss) {
+                item.Stop();
+            }
         }
         
         

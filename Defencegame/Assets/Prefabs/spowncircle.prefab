@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 212754092361893186}
   - component: {fileID: 95263451781493860}
   - component: {fileID: 114214732014024848}
-  - component: {fileID: 114522512714827642}
+  - component: {fileID: 7756866039490978915}
   m_Layer: 0
   m_Name: MagicCircle
   m_TagString: Untagged
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a989e83ccb4e949b037e0f48148860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114522512714827642
+--- !u!114 &7756866039490978915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,8 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d11aca36ec7f64ebab0951b14657ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: []
-  spownspan: 13
+  spownspan: 10
 --- !u!1 &1333513652838752
 GameObject:
   m_ObjectHideFlags: 0

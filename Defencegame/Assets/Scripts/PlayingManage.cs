@@ -18,13 +18,12 @@ public class PlayingManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(passedTime);
         if(isPlaying) passedTime=(Time.time-startTime);
-        if(OVRInput.GetDown(OVRInput.RawButton.A)){
+        if(OVRInput.GetDown(OVRInput.RawButton.A)&&!isPlaying){
             isPlaying=true;
             startTime=Time.time;
         }
-        if(OVRInput.GetDown(OVRInput.RawButton.X)||passedTime>120.0f){
+        if((OVRInput.GetDown(OVRInput.RawButton.X)||passedTime>120.0f)&&isPlaying){
             isPlaying=false;
         }
     }
