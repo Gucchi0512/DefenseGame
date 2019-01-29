@@ -10,6 +10,7 @@ public class MagicMotion : MonoBehaviour {
     GameObject player;
     bool left=false;
     public GameObject rigpos;
+    float lifetime=0.0f;
     // Use this for initialization
     void Start () {
         particle = this.GetComponentsInChildren<ParticleSystem>();
@@ -33,6 +34,10 @@ public class MagicMotion : MonoBehaviour {
             GetComponent<Rigidbody>().AddForce(force);
             left = true;
         }
+        if(left){
+            lifetime+=Time.deltaTime;
+            if(lifetime>3) Destroy(gameObject);
+        }
 	}
     void OnCollisionEnter(Collision  other){
         if(!(other.gameObject.tag=="Player")){
@@ -40,12 +45,10 @@ public class MagicMotion : MonoBehaviour {
         }
     }
     private void OnTriggerEnter(Collider col) {
-        if (!(col.tag=="Player")&&!(col.tag=="Target")) {
-            Destroy(gameObject);
-            if (col.tag == "enemy") {
-                Status hitenemy = col. GetComponent<Status>();
-                hitenemy.Damage((power + chargetime) - hitenemy.magicres);
-            }
+        Destroy(gameObject);
+        if (col.tag == "enemy") {
+            Status hitenemy = col. GetComponent<Status>();
+            hitenemy.Damage((power + chargetime) - hitenemy.magicres);
         }
     }
 }

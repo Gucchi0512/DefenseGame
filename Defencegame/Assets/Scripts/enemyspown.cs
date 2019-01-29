@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpown : MonoBehaviour
 {
-    private GameObject[] enemy;
+    [SerializeField] private GameObject[] enemy = new GameObject[4];
     int enemynum;
     public float spownspan = 10.0f;
     float passedtime = 0.0f;
@@ -16,7 +16,7 @@ public class EnemySpown : MonoBehaviour
     // Use this for initialization
     void Start() {
         player=GameObject.FindGameObjectWithTag("Player");
-        enemy=GameObject.FindGameObjectsWithTag("enemy");
+        //enemy=GameObject.FindGameObjectsWithTag("enemy");
         animator = GetComponentInChildren<Animator>();
         pss = GetComponentsInChildren<ParticleSystem>();
         chcolors = GetComponentsInChildren<ChangeColor>();

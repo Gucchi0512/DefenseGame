@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4401805742850150}
   - component: {fileID: 198588048371934256}
   - component: {fileID: 199312840754443228}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ring2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4709,7 +4709,7 @@ GameObject:
   - component: {fileID: 4494332940636700}
   - component: {fileID: 198794036800950986}
   - component: {fileID: 199872528038442208}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9407,7 +9407,7 @@ GameObject:
   - component: {fileID: 4126290577903418}
   - component: {fileID: 198729331523983704}
   - component: {fileID: 199057139762100386}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: charge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14108,7 +14108,7 @@ GameObject:
   - component: {fileID: 135915724833665442}
   - component: {fileID: 54632256328504084}
   - component: {fileID: 114831872913711592}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Magic
   m_TagString: bullet
   m_Icon: {fileID: 0}
