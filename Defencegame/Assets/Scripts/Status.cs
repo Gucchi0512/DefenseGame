@@ -2,15 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Status : MonoBehaviour {
 	[SerializeField]private float hp;
+    public  float maxHp;
 	public float speed;
 	public float magicres;
 	public float power;
 	private Animator animator;
+    public Slider slider;
+    public GameObject deadEff;
 	// Use this for initialization
+    public float HP {
+        get {
+            return hp;
+        }
+        set {
+            hp = value;
+        }
+    }
 	void Start () {
+        HP = maxHp;
 		animator=GetComponent<Animator>();
 	}
 	
@@ -33,7 +46,12 @@ public class Status : MonoBehaviour {
 		this.hp-=hitpower;
 	}
 	private IEnumerator DeadEnemy(){
-		yield return new WaitForSeconds(3f);
-		Destroy(this.gameObject);
+        slider.gameObject.SetActive(false);
+        var eff = Instantiate(deadEff, transform);
+        var dead = eff.GetComponentInChildren<ParticleSystem>();
+        Debug.Log(eff + " " + dead);
+        dead.Play(true);
+        yield return new WaitForSeconds(3f); 
+        Destroy(this.gameObject);
 	}
 }

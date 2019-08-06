@@ -14,10 +14,5 @@ public class LaserManage : MonoBehaviour {
 		
 	}
 
- 	void OnParticleTrigger(GameObject other){
-		 if(other.gameObject.tag==("enemy")){
-		 	other.GetComponent<Status>().Damage(3.0f);
-		 }
-		 Destroy(gameObject);
-	}
+ 	
 }

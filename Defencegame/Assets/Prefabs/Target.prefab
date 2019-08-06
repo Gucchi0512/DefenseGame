@@ -46,9 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 700
+  maxHp: 700
   speed: 0
   magicres: 0
   power: 0
+  slider: {fileID: 0}
+  deadEff: {fileID: 0}
 --- !u!135 &732904441522487687
 SphereCollider:
   m_ObjectHideFlags: 0

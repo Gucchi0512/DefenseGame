@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MagicMotion : MonoBehaviour {
     ParticleSystem[] particle;
+    public GameObject hitEff;
     float chargetime = 0.0f;
     float speed = 1000.0f;
     float power = 70.0f;
@@ -23,7 +24,7 @@ public class MagicMotion : MonoBehaviour {
             this.transform.position = rigpos.transform.position;
             if (!particle[0].isPlaying)particle[0].Play();
             if(chargetime<=75) chargetime += Time.deltaTime;
-            if(transform.localScale.x <= 1.0) transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
+            if(transform.localScale.x <= 0.5) transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
         }
         if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger)) {
             Vector3 force;
@@ -45,10 +46,14 @@ public class MagicMotion : MonoBehaviour {
         }
     }
     private void OnTriggerEnter(Collider col) {
-        Destroy(gameObject);
+        var pos = col.gameObject.transform.position;
         if (col.tag == "enemy") {
+            var center = col.transform.Find("Center");
+            var eff = Instantiate(hitEff, center.transform);
+            eff.GetComponentInChildren<ParticleSystem>().Play(true);
             Status hitenemy = col. GetComponent<Status>();
             hitenemy.Damage((power + chargetime) - hitenemy.magicres);
         }
+        Destroy(gameObject);
     }
 }
